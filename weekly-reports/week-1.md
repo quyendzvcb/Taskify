@@ -12,7 +12,7 @@
 
 | Thành viên | MSSV | Công việc | Link Commit/PR |
 |------------|------|-----------|----------------|
-| Phạm Anh Quyền | 2351010180 | Khởi tạo dự án | [abc123](link) |
+| Phạm Anh Quyền | 2351010180 | Khởi tạo dự án | [9b1c43b](link) |
 | Nguyễn Hữu Công | 2351010025 | ... | ... |
 | Huỳnh Thế Cảnh | 2351010022 | ... | ... |
 ---
