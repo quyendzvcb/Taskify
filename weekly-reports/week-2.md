@@ -13,7 +13,7 @@
 | Thành viên | MSSV | Công việc | Link Commit/PR |
 |------------|------|-----------|----------------|
 | Phạm Anh Quyền | 2351010180 | Phân tích yêu cầu chức năng | ... |
-| Nguyễn Hữu Công | 2351010025 | Phân tích yêu cầu phi chức năng | ... |
+| Nguyễn Hữu Công | 2351010025 | Phân tích yêu cầu phi chức năng | [...](https://github.com/quyendzvcb/Taskify/blob/16374253192ce2bde1f05db18dd7d923968e8597/docs/architecture/Y%C3%AAu%20c%E1%BA%A7u%20phi%20ch%E1%BB%A9c%20n%C4%83ng.txt) |
 | Huỳnh Thế Cảnh | 2351010022 | Phân tích Actors và Use cases | ... |
 ---
 ## 2. Tiến độ tổng thể
