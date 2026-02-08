@@ -1,82 +1,48 @@
-1. Hiệu năng (Performance Requirements)
+Hiệu năng (Performance)
+PR1: Trang Board tải xong trong < 2 giây (với 500 task).
 
-PR1
-Hệ thống phải tải trang Board trong thời gian < 2 giây với tối đa 500 task.
+PR2: API phản hồi các thao tác CRUD trong < 500 ms.
 
-PR2
-Thời gian phản hồi của API cho các thao tác CRUD task phải < 500 ms
+PR3: Thao tác kéo-thả task trên giao diện phải mượt mà, phản hồi < 200ms.
 
-PR3
-Thao tác kéo-thả task phải được phản hồi nhanh chóng (<200ms)
+Khả năng mở rộng & Lưu trữ (Scalability - Đã điều chỉnh)
+CR1: Hệ thống sử dụng Docker Volumes để lưu trữ dữ liệu task và file đính kèm bền vững trên ổ cứng máy chủ (Host), không bị mất khi container bị xóa.
 
-2. Khả năng mở rộng (Scalability Requirements)
+CR2: Hệ thống cho phép cấu hình giới hạn tài nguyên (RAM/CPU limit) thông qua file docker-compose.yml.
 
-CR1
-Hệ thống phải hỗ trợ mở rộng theo chiều ngang khi số lượng người dùng tăng.
+Độ tin cậy (Reliability - Đã điều chỉnh)
+RA1: Dữ liệu task phải đảm bảo tính toàn vẹn (ACID), không bị mất dữ liệu đã lưu nếu container bị tắt đột ngột.
 
-CR2
-Hệ thống phải cho phép tăng dung lượng lưu trữ task và file đính kèm mà không gián đoạn dịch vụ.
+RA32: Container backend phải có cơ chế tự động khởi động lại (Restart Policy: on-failure) nếu gặp lỗi runtime.
 
-3. Độ tin cậy & sẵn sàng (Reliability & Availability)
+Bảo mật (Security)
+SR1: Xác thực người dùng bằng email/password (Password phải được mã hóa/hash trong database).
 
-RA1
-Hệ thống phải đạt độ sẵn sàng > 99% uptime mỗi tháng.
+SR2: Phân quyền rõ ràng (Project Manager, Member).
 
-RA2
-Dữ liệu task phải được lưu bền vững, không mất dữ liệu khi hệ thống gặp sự cố.
+SR3: Chặn truy cập trái phép vào Board không được cấp quyền.
 
-RA3
-Hệ thống phải tự động khôi phục sau lỗi server.
+SR4: Code phải xử lý chặn các lỗi bảo mật cơ bản: SQL Injection, XSS (đặc biệt quan trọng dù chạy local).
 
-4. Bảo mật (Security Requirements)
+2.5. Khả năng sử dụng (Usability )
+UR1: Giao diện người dùng phải trực quan và dễ sử dụng đối với người mới.
 
-SR1
-Toàn bộ dữ liệu truyền giữa client và server phải được mã hóa bằng HTTPS.
+UR2: Người dùng mới phải có thể tạo board và task đầu tiên trong ≤ 10 phút.
 
-SR2
-Hệ thống phải áp dụng xác thực người dùng bằng email và mật khẩu được mã hóa.
+UR3: Hệ thống phải hỗ trợ thao tác drag & drop cho việc quản lý task.
 
-SR3
-Hệ thống phải hỗ trợ phân quyền truy cập theo vai trò: Project Manager, Member, Admin.
+UR4: Các thao tác quan trọng phải có thông báo phản hồi rõ ràng cho người dùng.
 
-SR4
-Người dùng chỉ được truy cập các board mà họ được cấp quyền.
+UR_5: Người dùng phải cài đặt và chạy được toàn bộ hệ thống chỉ với 1 câu lệnh (ví dụ: docker-compose up) trong thời gian < 5 phút.
 
-SR5
-Hệ thống phải ngăn chặn các tấn công phổ biến như SQL Injection, XSS, CSRF.
-5. Khả năng sử dụng (Usability Requirements)
+2.6. Khả năng bảo trì (Maintainability)
+MR1: Tổ chức mã nguồn rõ ràng (ví dụ: mô hình MVC hoặc Modular).
 
-UR1
-Giao diện người dùng phải trực quan và dễ sử dụng đối với người mới.
+MR2: Log lỗi phải được xuất ra Standard Output (stdout) của Docker để dễ dàng debug bằng lệnh docker logs.
 
-UR2
-Người dùng mới phải có thể tạo board và task đầu tiên trong ≤ 10 phút.
+2.7. Khả năng tương thích & Tích hợp (Compatibility & Interoperability)
+CR1: Chạy tốt trên Chrome/Firefox phiên bản mới nhất.
 
-UR3
-Hệ thống phải hỗ trợ thao tác drag & drop cho việc quản lý task.
+I1: Cung cấp RESTful API nội bộ để Frontend giao tiếp với Backend.
 
-UR4
-Các thao tác quan trọng phải có thông báo phản hồi rõ ràng cho người dùng.
-
-6. Khả năng tương thích (Compatibility Requirements)
-
-CR1
-Hệ thống phải hoạt động trên các trình duyệt hiện đại: Chrome, Firefox, Edge, Safari.
-
-7. Khả năng bảo trì (Maintainability Requirements)
-
-MR1
-Mã nguồn phải được tổ chức theo kiến trúc rõ ràng.
-
-MR2
-Hệ thống phải hỗ trợ logging và monitoring để dễ dàng phát hiện lỗi.
-
-MR3
-Việc cập nhật hoặc thêm tính năng mới không được ảnh hưởng đến các chức năng hiện có.
-8. Khả năng mở rộng tích hợp (Interoperability)
-
-I1
-Hệ thống phải cung cấp RESTful API để tích hợp với các hệ thống bên ngoài.
-
-I2
-API phải tuân thủ chuẩn HTTP status code và có tài liệu rõ ràng.
+I2: API trả về đúng HTTP status code (200, 400, 401, 500).
