@@ -1,0 +1,82 @@
+1. Hiệu năng (Performance Requirements)
+
+PR1
+Hệ thống phải tải trang Board trong thời gian < 2 giây với tối đa 500 task.
+
+PR2
+Thời gian phản hồi của API cho các thao tác CRUD task phải < 500 ms
+
+PR3
+Thao tác kéo-thả task phải được phản hồi nhanh chóng (<200ms)
+
+2. Khả năng mở rộng (Scalability Requirements)
+
+CR1
+Hệ thống phải hỗ trợ mở rộng theo chiều ngang khi số lượng người dùng tăng.
+
+CR2
+Hệ thống phải cho phép tăng dung lượng lưu trữ task và file đính kèm mà không gián đoạn dịch vụ.
+
+3. Độ tin cậy & sẵn sàng (Reliability & Availability)
+
+RA1
+Hệ thống phải đạt độ sẵn sàng > 99% uptime mỗi tháng.
+
+RA2
+Dữ liệu task phải được lưu bền vững, không mất dữ liệu khi hệ thống gặp sự cố.
+
+RA3
+Hệ thống phải tự động khôi phục sau lỗi server.
+
+4. Bảo mật (Security Requirements)
+
+SR1
+Toàn bộ dữ liệu truyền giữa client và server phải được mã hóa bằng HTTPS.
+
+SR2
+Hệ thống phải áp dụng xác thực người dùng bằng email và mật khẩu được mã hóa.
+
+SR3
+Hệ thống phải hỗ trợ phân quyền truy cập theo vai trò: Project Manager, Member, Admin.
+
+SR4
+Người dùng chỉ được truy cập các board mà họ được cấp quyền.
+
+SR5
+Hệ thống phải ngăn chặn các tấn công phổ biến như SQL Injection, XSS, CSRF.
+5. Khả năng sử dụng (Usability Requirements)
+
+UR1
+Giao diện người dùng phải trực quan và dễ sử dụng đối với người mới.
+
+UR2
+Người dùng mới phải có thể tạo board và task đầu tiên trong ≤ 10 phút.
+
+UR3
+Hệ thống phải hỗ trợ thao tác drag & drop cho việc quản lý task.
+
+UR4
+Các thao tác quan trọng phải có thông báo phản hồi rõ ràng cho người dùng.
+
+6. Khả năng tương thích (Compatibility Requirements)
+
+CR1
+Hệ thống phải hoạt động trên các trình duyệt hiện đại: Chrome, Firefox, Edge, Safari.
+
+7. Khả năng bảo trì (Maintainability Requirements)
+
+MR1
+Mã nguồn phải được tổ chức theo kiến trúc rõ ràng.
+
+MR2
+Hệ thống phải hỗ trợ logging và monitoring để dễ dàng phát hiện lỗi.
+
+MR3
+Việc cập nhật hoặc thêm tính năng mới không được ảnh hưởng đến các chức năng hiện có.
+8. Khả năng mở rộng tích hợp (Interoperability)
+
+I1
+Hệ thống phải cung cấp RESTful API để tích hợp với các hệ thống bên ngoài.
+
+I2
+API phải tuân thủ chuẩn HTTP status code và có tài liệu rõ ràng.
